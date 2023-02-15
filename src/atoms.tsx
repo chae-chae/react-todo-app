@@ -12,16 +12,31 @@ export enum Categories {
   "DONE" = "DONE",
 }
 
+export const categoryObj = {
+  TO_DO: "TO_DO",
+  DOING: "DOING",
+  DONE: "DONE",
+};
+
 export interface IToDo {
   text: string;
   id: number;
   category: Categories;
 }
 
-export const categoryState = atom<Categories>({
+// export interface ICategory {
+//   text: string,
+// }
+
+export const categoryState = atom({
   key: "category",
   default: Categories.TO_DO,
 });
+
+// export const categoryState = atom<ICategory[]>({
+//   key: "category",
+//   default: [],
+// })
 
 export const toDoState = atom<IToDo[]>({
   key: "toDo",
