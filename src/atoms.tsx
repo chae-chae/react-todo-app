@@ -1,7 +1,15 @@
 import { atom, selector } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
-export const toDoState = atom({
+interface IToDoState {
+  [key: string]: string[];
+}
+
+export const toDoState = atom<IToDoState>({
   key: "toDo",
-  default: ["a", "b", "c", "d", "e", "f"],
+  default: {
+    "To Do": ["a", "b", "f"],
+    Doing: ["c", "d"],
+    Done: ["e"],
+  },
 });
