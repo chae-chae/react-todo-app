@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { toDoState } from "./atoms";
 import Board from "./Components/Board";
 import DraggableCard from "./Components/DraggableCard";
+import NewCategoryForm from "./NewCategoryForm";
 
 const Wrapper = styled.div`
   display: flex;
@@ -65,6 +66,7 @@ function App() {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Wrapper>
+        <NewCategoryForm />
         <Boards>
           {Object.keys(toDos).map((boardId) => (
             <Board boardId={boardId} key={boardId} toDos={toDos[boardId]} />
